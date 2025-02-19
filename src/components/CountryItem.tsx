@@ -9,15 +9,15 @@ type Props = {
 const CountryItem = ({ name, flag, countryCode }: Props) => {
 	return (
 		<Link
-			className="flex justify-center flex-col text-center h-32 border-2 border-amber-600 p-3 rounded-xl hover:bg-zinc-600"
+			className="flex justify-center flex-col text-center h-50 border-2 border-amber-600 p-3 rounded-xl hover:bg-zinc-600"
 			to={`/${countryCode}`}
 		>
 			<img
 				src={flag}
 				alt={`${name} flag`}
-				className=" self-center rounded-lg h-full max-h-12 md:max-h-25"
+				className=" self-center rounded-lg h-full max-h-15 md:max-h-25"
 			/>
-			<div>{name}</div>
+			<div className="text-">{name}</div>
 		</Link>
 	);
 };
