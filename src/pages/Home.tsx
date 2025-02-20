@@ -11,13 +11,19 @@ const Home = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [filteredCountries, setFilteredCountries] = useState(countries);
 
-	console.log(searchInput);
 	useEffect(() => {
+		const compareCountriesName = (a: CountryType, b: CountryType) =>
+			a.name.common.localeCompare(b.name.common);
+
 		const getAllCountries = async () => {
 			try {
 				const response = await api.get("/all");
-				setCountries(response.data);
-				setFilteredCountries(response.data);
+				const returnedCountries = response.data;
+				const sortedCountries = returnedCountries.sort(
+					(a: CountryType, b: CountryType) => compareCountriesName(a, b),
+				);
+				setCountries(sortedCountries);
+				setFilteredCountries(sortedCountries);
 			} catch (error) {
 				console.log(error);
 			} finally {
