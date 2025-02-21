@@ -4,12 +4,15 @@ import api from "../services/api";
 import Loading from "../components/Loading";
 import SearchBar from "../components/SearchBar";
 import CountryList from "../components/CountryList";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
 	const [countries, setCountries] = useState<CountryType[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [searchInput, setSearchInput] = useState("");
 	const [filteredCountries, setFilteredCountries] = useState(countries);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [countriesPerPage, setCountriesPerPage] = useState(12);
 
 	useEffect(() => {
 		const compareCountriesName = (a: CountryType, b: CountryType) =>
@@ -33,6 +36,13 @@ const Home = () => {
 		getAllCountries();
 	}, []);
 
+	const lastCountryIndex = currentPage * countriesPerPage;
+	const firsCountryIndex = lastCountryIndex - countriesPerPage;
+	const currentCountries = filteredCountries.slice(
+		firsCountryIndex,
+		lastCountryIndex,
+	);
+
 	return (
 		<div className="flex flex-col justify-center items-center gap-10">
 			<h1 className="font-bold text-center text-2xl md:text-4xl p-6">
@@ -44,11 +54,17 @@ const Home = () => {
 				countries={countries}
 				setFilteredCountries={setFilteredCountries}
 			/>
+
+			<Pagination
+				totalCountries={filteredCountries.length}
+				countriesPerPage={countriesPerPage}
+				setCurrentPage={setCurrentPage}
+			/>
 			{isLoading && <Loading />}
 			{filteredCountries.length !== 0 ? (
-				<CountryList filteredCountries={filteredCountries} />
+				<CountryList filteredCountries={currentCountries} />
 			) : (
-				<div>No results found!</div>
+				!isLoading && <div>No results found!</div>
 			)}
 		</div>
 	);

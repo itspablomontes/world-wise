@@ -6,7 +6,7 @@ type Props = {
 
 const CountryList = ({ filteredCountries }: Props) => {
 	return (
-		<div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-bold cent">
+		<div className="grid grid-cols-2 md:grid-cols-4 gap-3 font-bold">
 			{filteredCountries.map((country) => (
 				<CountryItem
 					key={country.cca2}
