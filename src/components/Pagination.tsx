@@ -1,16 +1,18 @@
 type Props = {
 	totalCountries: number;
 	countriesPerPage: number;
+	currentPage: number;
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Pagination = ({
 	totalCountries,
 	countriesPerPage,
+	currentPage,
 	setCurrentPage,
 }: Props) => {
 	const pages: number[] = [];
-	for (let i = 1; i <= totalCountries / countriesPerPage; i++) {
+	for (let i = 1; i <= Math.ceil(totalCountries / countriesPerPage); i++) {
 		pages.push(i);
 	}
 	return (
@@ -22,7 +24,7 @@ const Pagination = ({
 						type="radio"
 						name="options"
 						aria-label={`${page}`}
-						defaultChecked={page === 1 && true}
+						defaultChecked={page === currentPage && true}
 						onClick={() => setCurrentPage(page)}
 					/>
 				</div>

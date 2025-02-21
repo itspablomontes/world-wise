@@ -58,6 +58,7 @@ const Home = () => {
 			<Pagination
 				totalCountries={filteredCountries.length}
 				countriesPerPage={countriesPerPage}
+				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 			/>
 			{isLoading && <Loading />}
