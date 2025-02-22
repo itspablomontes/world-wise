@@ -4,6 +4,7 @@ type Props = {
 	value: string;
 	onChange: (value: string) => void;
 	countries: CountryType[];
+	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 	setFilteredCountries: React.Dispatch<React.SetStateAction<CountryType[]>>;
 };
 
@@ -11,6 +12,7 @@ const SearchBar = ({
 	value,
 	onChange,
 	countries,
+	setCurrentPage,
 	setFilteredCountries,
 }: Props) => {
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,6 +23,7 @@ const SearchBar = ({
 					.toLowerCase()
 					.includes(e.target.value.toLowerCase()),
 			);
+			setCurrentPage(1);
 			setFilteredCountries(filteredArray);
 		} else {
 			setFilteredCountries(countries);
@@ -28,7 +31,7 @@ const SearchBar = ({
 	};
 	return (
 		<input
-			className="outline-none rounded-lg p-1 md:w-3/5 w-4/5 "
+			className="outline-none rounded-lg p-1 md:w-1/5 w-4/5 "
 			type="search"
 			value={value}
 			onChange={handleChange}
