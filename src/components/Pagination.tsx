@@ -12,23 +12,33 @@ const Pagination = ({
 	setCurrentPage,
 }: Props) => {
 	const pages: number[] = [];
-	for (let i = 1; i <= Math.ceil(totalCountries / countriesPerPage); i++) {
+	const amountOfPages = Math.ceil(totalCountries / countriesPerPage);
+	for (let i = 1; i <= amountOfPages; i++) {
 		pages.push(i);
 	}
 	return (
 		<div className="flex gap-1 flex-wrap justify-center">
-			{pages.map((page) => (
-				<div className="join" key={page}>
-					<input
-						className="join-item btn btn-square"
-						type="radio"
-						name="options"
-						aria-label={`${page}`}
-						defaultChecked={page === currentPage && true}
-						onClick={() => setCurrentPage(page)}
-					/>
-				</div>
-			))}
+			<div className="join">
+				<button
+					type="button"
+					className="join-item btn"
+					onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+				>
+					«
+				</button>
+				<button type="button" className="join-item btn">
+					{currentPage}
+				</button>
+				<button
+					type="button"
+					className="join-item btn"
+					onClick={() =>
+						currentPage <= amountOfPages && setCurrentPage(currentPage + 1)
+					}
+				>
+					»
+				</button>
+			</div>
 		</div>
 	);
 };
