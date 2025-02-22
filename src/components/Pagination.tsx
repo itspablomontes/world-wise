@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 type Props = {
 	totalCountries: number;
 	countriesPerPage: number;
@@ -17,41 +19,57 @@ const Pagination = ({
 		pages.push(i);
 	}
 	return (
-		<div className="flex gap-1 flex-wrap justify-center">
-			<div className="flex  gap-2">
-				<button
+		<div className="flex gap-1 flex-wrap justify-center ">
+			<div className="flex join gap-2 font-bold ">
+				<motion.button
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 					type="button"
-					className="join-item btn "
+					className="join-item btn text-lg"
 					onClick={() => setCurrentPage(1)}
 				>
 					{"<<"}
-				</button>
-				<button
+				</motion.button>
+				<motion.button
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 					type="button"
-					className="join-item btn"
+					className="join-item btn text-lg"
 					onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
 				>
 					{"<"}
-				</button>
-				<button type="button" className="join-item btn">
+				</motion.button>
+				<motion.button type="button" className="join-item btn text-lg">
 					{currentPage}
-				</button>
-				<button
+				</motion.button>
+				<motion.button
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 					type="button"
-					className="join-item btn"
+					className="join-item btn text-lg"
 					onClick={() =>
 						currentPage <= amountOfPages && setCurrentPage(currentPage + 1)
 					}
 				>
 					{">"}
-				</button>
-				<button
+				</motion.button>
+				<motion.button
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.95 }}
 					type="button"
-					className="join-item btn"
+					className="join-item btn text-lg"
 					onClick={() => setCurrentPage(amountOfPages + 1)}
 				>
 					{">>"}
-				</button>
+				</motion.button>
 			</div>
 		</div>
 	);
