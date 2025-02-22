@@ -12,7 +12,7 @@ const Pagination = ({
 	setCurrentPage,
 }: Props) => {
 	const pages: number[] = [];
-	const amountOfPages = Math.ceil(totalCountries / countriesPerPage);
+	const amountOfPages = Math.ceil(totalCountries / countriesPerPage) - 1;
 	for (let i = 1; i <= amountOfPages; i++) {
 		pages.push(i);
 	}
