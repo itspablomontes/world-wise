@@ -18,13 +18,20 @@ const Pagination = ({
 	}
 	return (
 		<div className="flex gap-1 flex-wrap justify-center">
-			<div className="join">
+			<div className="flex  gap-2">
+				<button
+					type="button"
+					className="join-item btn "
+					onClick={() => setCurrentPage(1)}
+				>
+					{"<<"}
+				</button>
 				<button
 					type="button"
 					className="join-item btn"
 					onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
 				>
-					«
+					{"<"}
 				</button>
 				<button type="button" className="join-item btn">
 					{currentPage}
@@ -36,7 +43,14 @@ const Pagination = ({
 						currentPage <= amountOfPages && setCurrentPage(currentPage + 1)
 					}
 				>
-					»
+					{">"}
+				</button>
+				<button
+					type="button"
+					className="join-item btn"
+					onClick={() => setCurrentPage(amountOfPages + 1)}
+				>
+					{">>"}
 				</button>
 			</div>
 		</div>
