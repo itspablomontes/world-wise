@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import type { CountryType } from "../types/Types";
 import Loading from "../components/Loading";
 import Location from "../components/Location";
+import LanguagesWidget from "../components/LanguagesWidget";
 
 const CountryPage = () => {
 	const [country, setCountry] = useState<CountryType>();
@@ -27,21 +28,28 @@ const CountryPage = () => {
 	const countryRegion = country?.region;
 	const countrySubRegion = country?.subregion;
 	const countryCapital = country?.capital[0];
+	const countryLang = country?.languages;
 	if (isLoading) {
 		return <Loading />;
 	}
 	return (
 		<div className="flex flex-col justify-center items-center gap-2 py-5 font-extrabold font-secondary">
 			<div className="text-center  text-3xl uppercase ">{countryName}</div>
-			<div>
-				<img src={countryFlag} alt={`${countryName} flag`} className="h-50" />
+			<div className="py-5 px-10 rounded-2xl border-1 border-white">
+				<img
+					src={countryFlag}
+					alt={`${countryName} flag`}
+					className="h-50 shadow-lg"
+				/>
 			</div>
-
-			<Location
-				region={countryRegion}
-				subRegion={countrySubRegion}
-				capital={countryCapital}
-			/>
+			<div className="flex flex-col gap-8">
+				<Location
+					region={countryRegion}
+					subRegion={countrySubRegion}
+					capital={countryCapital}
+				/>
+				<LanguagesWidget languages={countryLang} />
+			</div>
 		</div>
 	);
 };
