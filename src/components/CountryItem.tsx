@@ -14,7 +14,7 @@ const CountryItem = ({ name, flag, countryCode }: Props) => {
 				animate={{ opacity: 1 }}
 				whileHover={{ scale: 1.1 }}
 				whileTap={{ scale: 0.95 }}
-				className="flex justify-center flex-col text-center h-50 min-w-full flex-1 bg-zinc-800 drop-shadow-xl p-3 rounded-xl hover:bg-zinc-600"
+				className="flex justify-center flex-col text-center h-50 min-w-full flex-1 bg-zinc-800 drop-shadow-xl p-3 rounded-xl hover:bg-zinc-600 uppercase"
 			>
 				<img
 					src={flag}
