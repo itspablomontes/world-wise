@@ -1,4 +1,5 @@
 import { Languages } from "lucide-react";
+import { motion } from "motion/react";
 type Props = {
 	languages:
 		| {
@@ -13,7 +14,12 @@ const LanguagesWidget = ({ languages }: Props) => {
 		languagesArr.push(languages[language]);
 	}
 	return (
-		<div className="flex flex-col items-center text-2xl">
+		<motion.div
+			className="flex flex-col items-center text-2xl"
+			initial={{ x: 300 }}
+			animate={{ x: 0 }}
+			transition={{ duration: 0.7 }}
+		>
 			<Languages size={50} />
 			<p>LANGUAGES</p>
 			<ul className="font-extralight">
@@ -21,7 +27,7 @@ const LanguagesWidget = ({ languages }: Props) => {
 					<li key={language}>- {language}</li>
 				))}
 			</ul>
-		</div>
+		</motion.div>
 	);
 };
 
