@@ -12,7 +12,7 @@ const Home = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [filteredCountries, setFilteredCountries] = useState(countries);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [countriesPerPage, setCountriesPerPage] = useState(8);
+	const countriesPerPage = 8;
 
 	useEffect(() => {
 		const compareCountriesName = (a: CountryType, b: CountryType) =>
