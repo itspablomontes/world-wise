@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import Location from "../components/Location";
 import LanguagesWidget from "../components/LanguagesWidget";
 import PopulationWidget from "../components/PopulationWidget";
+import PopulationChart from "../components/PopulationChart";
 
 const CountryPage = () => {
 	const [country, setCountry] = useState<CountryType>();
@@ -31,6 +32,7 @@ const CountryPage = () => {
 	const countryCapital = country?.capital[0];
 	const countryLang = country?.languages;
 	const countryPop = country?.population.toLocaleString();
+	const countryPopCode = country?.cca3;
 	if (isLoading) {
 		return <Loading />;
 	}
@@ -44,7 +46,7 @@ const CountryPage = () => {
 					className="h-50 shadow-lg"
 				/>
 			</div>
-			<div className="flex flex-col gap-8 items-center">
+			<div className="flex flex-col gap-8 items-center md:grid md:grid-cols-2">
 				<Location
 					region={countryRegion}
 					subRegion={countrySubRegion}
@@ -52,6 +54,7 @@ const CountryPage = () => {
 				/>
 				<LanguagesWidget languages={countryLang} />
 				<PopulationWidget population={countryPop} />
+				<PopulationChart countryCode={countryPopCode} />
 			</div>
 		</div>
 	);

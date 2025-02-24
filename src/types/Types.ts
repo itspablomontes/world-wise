@@ -4,6 +4,7 @@ export type CountryType = {
 		official: string;
 	};
 	cca2: string;
+	cca3: string;
 	flags: {
 		svg: string;
 	};
@@ -14,4 +15,9 @@ export type CountryType = {
 	languages: {
 		[key: string]: string;
 	};
+};
+
+export type PopulationDataType = {
+	year: number;
+	value: number;
 };
