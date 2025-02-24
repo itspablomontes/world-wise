@@ -29,7 +29,7 @@ const CountryPage = () => {
 	const countryFlag = country?.flags.svg;
 	const countryRegion = country?.region;
 	const countrySubRegion = country?.subregion;
-	const countryCapital = country?.capital[0];
+	const countryCapital = country?.capital;
 	const countryLang = country?.languages;
 	const countryPop = country?.population.toLocaleString();
 	const countryPopCode = country?.cca3;
@@ -43,7 +43,7 @@ const CountryPage = () => {
 				<img
 					src={countryFlag}
 					alt={`${countryName} flag`}
-					className="h-50 shadow-lg"
+					className="max-h-50 shadow-lg w-full"
 				/>
 			</div>
 			<div className="flex flex-col gap-8 items-center md:grid md:grid-cols-2">

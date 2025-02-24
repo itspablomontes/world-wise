@@ -3,7 +3,7 @@ import { Earth } from "lucide-react";
 type Props = {
 	region: string | undefined;
 	subRegion: string | undefined;
-	capital: string | undefined;
+	capital: string[] | undefined;
 };
 
 const Location = ({ region, subRegion, capital }: Props) => {
@@ -18,7 +18,7 @@ const Location = ({ region, subRegion, capital }: Props) => {
 			</div>
 
 			<p>CAPITAL</p>
-			<p className="font-extralight">{capital}</p>
+			<p className="font-extralight">{capital ? capital[0] : "No Capital"}</p>
 		</div>
 	);
 };
