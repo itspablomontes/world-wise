@@ -100,6 +100,15 @@ const PopulationChart = ({ countryCode }: Props) => {
 			</div>
 		);
 	}
+
+	if (populationData.length === 0) {
+		return (
+			<div className="md:col-span-2 text-center text-red-600">
+				Past population data not found
+			</div>
+		);
+	}
+	console.log(populationData);
 	return (
 		<div className="flex  md:col-span-2 justify-center ">
 			<Line
