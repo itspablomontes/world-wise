@@ -5,6 +5,7 @@ import type { CountryType } from "../types/Types";
 import Loading from "../components/Loading";
 import Location from "../components/Location";
 import LanguagesWidget from "../components/LanguagesWidget";
+import PopulationWidget from "../components/PopulationWidget";
 
 const CountryPage = () => {
 	const [country, setCountry] = useState<CountryType>();
@@ -29,6 +30,7 @@ const CountryPage = () => {
 	const countrySubRegion = country?.subregion;
 	const countryCapital = country?.capital[0];
 	const countryLang = country?.languages;
+	const countryPop = country?.population.toLocaleString();
 	if (isLoading) {
 		return <Loading />;
 	}
@@ -42,13 +44,14 @@ const CountryPage = () => {
 					className="h-50 shadow-lg"
 				/>
 			</div>
-			<div className="flex flex-col gap-8">
+			<div className="flex flex-col gap-8 items-center">
 				<Location
 					region={countryRegion}
 					subRegion={countrySubRegion}
 					capital={countryCapital}
 				/>
 				<LanguagesWidget languages={countryLang} />
+				<PopulationWidget population={countryPop} />
 			</div>
 		</div>
 	);
