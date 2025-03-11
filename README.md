@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# 🚀 Project Title
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Description
+This project provides an interactive interface for exploring country-related data by consuming the RestCountries and CountriesNow APIs. It displays key information such as country names, flags, population statistics, and spoken languages, offering a clear and engaging visualization.
 
-Currently, two official plugins are available:
+## ✨ Features
+- ✅ Api Data Handling
+- ✅ Info exhibition with engaging UI
+- ✅ Population Data Visualization using React Charts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/itspablomontes/world-wise.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd world-wise
+   ```
+3. Install dependencies:
+   ```sh
+   pnpm install
+   ```
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Usage
+Run the project with:
+```sh
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 💻 Technologies Used
+- Typescript
+- React 
+- Tailwind
+- DaisyUI
+- Axios
+- React Charts & Charts.js
+- Framer Motion
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🤝 Contributing
+Contributions are welcome! Please follow these steps:
+1. 🍴 Fork the repository.
+2. 🌿 Create a new branch.
+3. 📝 Make your changes and commit them.
+4. 🔄 Submit a pull request.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+
