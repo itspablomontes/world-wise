@@ -15,7 +15,7 @@ This project provides an interactive interface for exploring country-related dat
    ```
 2. Navigate to the project directory:
    ```sh
-   cd your-project
+   cd world-wise
    ```
 3. Install dependencies:
    ```sh
