@@ -1,4 +1,4 @@
-# 🚀 Project Title
+# 🚀 World Wise
 
 ## 📖 Description
 This project provides an interactive interface for exploring country-related data by consuming the RestCountries and CountriesNow APIs. It displays key information such as country names, flags, population statistics, and spoken languages, offering a clear and engaging visualization.
